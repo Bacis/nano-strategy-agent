@@ -160,6 +160,7 @@ import { quickIntelPlugin } from "@elizaos/plugin-quick-intel";
 
 import { trikonPlugin } from "@elizaos/plugin-trikon";
 import arbitragePlugin from "@elizaos/plugin-arbitrage";
+import { signMessageAction } from "./customAction";
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
 
@@ -1310,6 +1311,7 @@ export async function createAgent(
             .filter(Boolean),
         providers: [],
         managers: [],
+        actions: [signMessageAction],
         cacheManager: cache,
         fetch: logFetch,
         verifiableInferenceAdapter,
